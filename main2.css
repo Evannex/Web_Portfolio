@@ -1,0 +1,420 @@
+/*=================================================
+   GENERAL STYLING
+=================================================*/
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+  font-family: Helvetica, sans-serif;
+  background-color: #07000a;
+  color: #bbbbbb;
+}
+.clearfix {
+  content: '';
+  clear: both;
+  display: table;
+}
+main, header, footer {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #37303a;
+}
+.content {
+  width: 100%;
+  padding-top: 20px;
+}
+h1, h2, h3 {
+  text-align: center;
+}
+
+h3 {
+  padding-bottom: 1em;
+}
+
+/*=================================================
+   SECTION SPECIFIC STYLING
+=================================================*/
+#home {
+  text-align: center;
+  background: #27202a;
+  color: #c7c0ca;
+  padding-bottom: 1em;
+  position: relative;
+}
+
+#gallery {
+  border-top: 3px solid #f80;
+  padding-bottom: 1em;
+}
+
+
+#skills {
+  border-top: 2px solid #f80;
+  padding: 1em 0;
+  background: #c7c0ca;
+  color: #232323;
+  text-align: center;
+}
+#skills .card {
+  padding: 0.5em 0.2em;
+}
+#skills img {
+  max-width: 150px;
+  max-height: 150px;
+}
+#skills i {
+  padding: 0.3em 0;
+  width: 15%;
+}
+#skills i:hover{
+  text-shadow: 0 0 100px #f80;
+}
+#skills hr {
+  width: 50%;
+  border-top: 2px solid #f80;
+  border-bottom: none;
+  margin: 0.5em auto;
+}
+
+
+#about {
+  border-top: 2px solid #f80;
+  padding: 1em 0;
+}
+#about p {
+  padding: 0 1em;
+}
+
+
+#contact{
+  border-top: 2px solid #f80;
+  padding: 1em 0;
+  background: #c7c0ca;
+  color: #232323;
+  text-align: center;
+}
+
+
+footer {
+  background: #27202a;
+  color: #c7c0ca;
+  border-top: 2px solid #f80;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 0.7em;
+}
+
+.hireMe {
+  padding: 0.25em;
+  margin: 0.25em;
+  margin-top: 1em;
+  border: 2px solid #f80;
+  border-radius: 5px;
+  background: rgba(39, 32, 42, 0.75);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  color: #f80;
+  font-weight: bold;
+  text-align: center;
+}
+.hireMe a{
+  font-weight: bold;
+  text-decoration: none;
+  color: #f80;
+}
+.hireMe:hover {
+  background-color: #f80;
+  color: #27202a;
+}
+.hireMe:hover a {
+  color: #27202a;
+}
+
+
+
+
+/*=================================================
+   HEXAGON STYLING
+=================================================*/
+
+#hexGrid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  font-family: Helvetica, sans-serif;
+  font-size: 15px;
+  list-style-type: none;
+}
+
+.hex {
+  position: relative;
+  visibility:hidden;
+  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+}
+.hex::after{
+  content:'';
+  display:block;
+  padding-bottom: 86.602%;  /* =  100 / tan(60) * 1.5 */
+}
+.hexIn{
+  position: absolute;
+  width:96%;
+  padding-bottom: 110.851%; /* =  width / sin(60) */
+  margin:0 2%;
+  overflow: hidden;
+  visibility: hidden;
+  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  -webkit-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+      -ms-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+          transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+}
+.hexIn * {
+  position: absolute;
+  visibility: visible;
+  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+}
+.hexLink {
+    display:block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    -webkit-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+        -ms-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+            transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+}
+
+/* HEXAGON CONTENT */
+.hex img {
+  left: -100%;
+  right: -100%;
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+  -webkit-transform: rotate3d(0,0,0,0deg);
+      -ms-transform: rotate3d(0,0,0,0deg);
+          transform: rotate3d(0,0,0,0deg);
+}
+
+.hex h4, .hex p {
+  width: 100%;
+  padding: 5%;
+  box-sizing:border-box;
+  background-color: rgba(255, 160, 000, 0.6);
+  font-weight: 300;
+  -webkit-transition:  -webkit-transform .15s ease-out, opacity 1.3s ease-out;
+          transition:          transform .15s ease-out, opacity 1.3s ease-out;
+}
+.hex h4 {
+  bottom: 50%;
+  padding-top:50%;
+  font-size: 1.5em;
+  z-index: 1;
+  -webkit-transform:translate3d(100%, -100%, 0);
+      -ms-transform:translate3d(100%, -100%, 0);
+          transform:translate3d(100%, -100%, 0);
+}
+.hex h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+  width: 10%;
+  text-align: center;
+  border-bottom: 1px solid #fff;
+}
+.hex p {
+  top: 50%;
+  padding-bottom:50%;
+  -webkit-transform:translate3d(-100%, 100%,0);
+      -ms-transform:translate3d(-100%, 100%,0);
+          transform:translate3d(-100%, 100%,0);
+}
+
+
+/* HEXAGON HOVER EFFECT */
+.hexLink:hover h4, .hexLink:focus h4,
+.hexLink:hover p, .hexLink:focus p{
+  -webkit-transform:translate3d(0,0,0);
+      -ms-transform:translate3d(0,0,0);
+          transform:translate3d(0,0,0);
+}
+
+
+/*=================================================
+   MEDIA QUERIES
+=================================================*/
+@media (min-width:801px) { /* <- 5-4  hexagons per row */
+  #home .hireMe {
+    position: absolute;
+    top: 0;
+    right: 0.2em;
+  }
+  #about .container{
+    width: 60%;
+    margin: auto;
+  }
+  #skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+    "label label label"
+    "html css js"
+    "other other other";
+  }
+  #skills h3 {
+    grid-area: label;
+  }
+  #htmlCard {
+    grid-area: html;
+  }
+  #cssCard {
+    grid-area: css;
+  }
+  #jsCard {
+    grid-area: js;
+  }
+  .otherskills{
+    grid-area: other;
+  }
+
+  /* HEXAGONS */
+  #hexGrid{
+    padding-bottom: 4.4%;
+  }
+  .hex {
+    width: 20%; /* = 100 / 5 */
+  }
+  .hex:nth-child(9n+1){ /* first hexagon of odd rows */
+    margin-left:10%;  /* = width of .hex / 2  to indent odd rows */
+  }
+  .hex:nth-child(n+14){
+  	display: none;
+  } 
+  
+  .left {
+    float: left;
+  }
+  .right {
+    float: right;
+  } 
+
+
+}
+
+@media (max-width: 800px) and (min-width:601px) { 
+  #home .hireMe {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  #about .container{
+    width: 70%;
+    margin: auto;
+  }
+  #skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+    "label label label"
+    "html css js"
+    "other other other";
+  }
+  #skills h3 {
+    grid-area: label;
+  }
+  #htmlCard {
+    grid-area: html;
+  }
+  #cssCard {
+    grid-area: css;
+  }
+  #jsCard {
+    grid-area: js;
+  }
+  .otherskills{
+    grid-area: other;
+  }
+  
+
+  /* HEXAGONS */
+  #hexGrid{
+    padding-bottom: 5.5%;
+  }
+  .hex {
+    width: 25%; /* = 100 / 4 */
+  }
+  .hex:nth-child(7n+1){ /* first hexagon of odd rows */
+    margin-left:12.5%;  /* = width of .hex / 2  to indent odd rows */
+  }
+  .hex:nth-child(n+11){
+  	display: none;
+  }  
+  
+  .left {
+    float: left;
+  }
+  .right {
+    float: right;
+  } 
+
+
+}
+
+@media (max-width: 600px) and (min-width:401px) { 
+  #home .hireMe {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  #about .container{
+    width: 80%;
+    margin: auto;
+  }
+
+
+  /* HEXAGONS */
+  #hexGrid{
+    padding-bottom: 7.4%;
+    font-size: 12px;
+  }
+  .hex {
+    width: 33.333%; /* = 100 / 3 */
+  }
+  .hex:nth-child(5n+1){ /* first hexagon of odd rows */
+    margin-left:16.666%;  /* = width of .hex / 2  to indent odd rows */
+  }
+  .hex:nth-child(n+8){
+  	display: none;
+  }  
+
+  .left {
+    float: left;
+  }
+  .right {
+    float: right;
+  } 
+
+}
+
+@media (max-width: 400px) { 
+  /* HEXAGONS */
+  #hexGrid{
+    padding-bottom: 11.2%;
+    font-size: 12px;
+  }
+  .hex {
+    width: 50%; /* = 100 / 3 */
+  }
+  .hex:nth-child(3n+1){ /* first hexagon of odd rows */
+    margin-left:25%;  /* = width of .hex / 2  to indent odd rows */
+  }
+  .hex:nth-child(n+8){
+  	display: none;
+  }
+}
+
